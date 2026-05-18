@@ -65,4 +65,15 @@ class AuthController extends Controller
             'user' => $user
         ], 200);
     }
+    // ៣. មុខងារចាកចេញពីគណនី (Logout)
+    public function logout(Request $request)
+    {
+        // កម្ទេចសោ Token ដែលកំពុងប្រើប្រាស់បច្ចុប្បន្នចោល
+        $request->user()->currentAccessToken()->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'ចាកចេញពីគណនីបានជោគជ័យ!'
+        ], 200);
+    }
 }
