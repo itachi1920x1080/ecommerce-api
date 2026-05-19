@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            // 🎯 ថែមបន្ទាត់នេះចូល ដើម្បីកំណត់តួនាទី (បើមិនដាក់ទេ វាដើរតួជា user ធម្មតា)
+            $table->string('role')->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

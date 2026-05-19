@@ -55,6 +55,13 @@ Route::middleware('auth:sanctum')->group(function () {
         
         // ផ្លូវសម្រាប់ Admin ចូលទៅលុបផលិតផលចោលពីហាង
         Route::delete('/admin/products/{id}', [ProductController::class, 'destroy']);
+        // 🎯 ផ្លូវសម្រាប់ Admin បន្ថែមផលិតផលថ្មី
+        Route::post('/admin/products', [ProductController::class, 'store']);
         
+        // ផ្លូវលុបទំនិញ (របស់ចាស់បងមានស្រាប់)
+        Route::delete('/admin/products/{id}', [ProductController::class, 'destroy']);
+            
     });
+
+
 });

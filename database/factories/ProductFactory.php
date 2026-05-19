@@ -13,6 +13,7 @@ class ProductFactory extends Factory
         $price = fake()->randomFloat(2, 10, 500); // តម្លៃចន្លោះពី ១០ ទៅ ៥០០ ដុល្លារ
 
         return [
+            'category_id' => fake()->numberBetween(1, 10),
             'name' => ucfirst($name),
             'slug' => Str::slug($name),
             'sku' => 'PROD-' . fake()->unique()->numberBetween(1000, 9999),
@@ -20,6 +21,7 @@ class ProductFactory extends Factory
             'discount_price' => fake()->boolean(30) ? $price - ($price * 0.1) : null, // 30% នៃផលិតផលមានបញ្ចុះតម្លៃ
             'qty' => fake()->numberBetween(0, 100),
             'description' => fake()->paragraph(),
+            
             // មិនបាច់ដាក់រូបសិនទេ ទុក null
         ];
     }
